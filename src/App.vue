@@ -3,7 +3,7 @@
 </template>
 
 <script setup>
-import App from './diretivas/App.vue'
+import App from './eventos-e-metodos/App.vue'
 </script>
 
 <style>
