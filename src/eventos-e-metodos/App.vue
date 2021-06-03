@@ -8,7 +8,12 @@
         <ul v-if="showList">
             <li 
                 v-for="(task, index) in tasks" 
+                @dblclick="complete(task)"
                 :key="`${task}-${index}`"
+                class="task-item"
+                :class="{
+                    'line-through': task.isDone
+                }"
             >
             {{task.name}}
             <button @click="remove(task)">&times;</button>
@@ -47,10 +52,24 @@ export default {
             this.tasks = this.tasks.filter(t => {
                 t.name !== task.name
             })
+        },
+        complete(task){
+            this.tasks = this.tasks.map(t => {
+                if(t.name === task.name){
+                    return {...t, isDone: !t.isDone}
+                }
+                return {...t}
+            })
         }
     }
 }
 </script>
 
 <style scoped>
+    .line-through {
+        text-decoration: line-through;
+    }
+    .task-item {
+        cursor: pointer;
+    }
 </style>
