@@ -3,8 +3,12 @@
         <h1>Minha lista de tarefas</h1>
         <button @click="handleShowHideList">Ver a lista!</button>
         <br>
-        <input type="text" v-focus>
-
+        <input 
+            type="text" 
+            @keyup.enter="addTask" 
+            v-focus 
+            v-model="currentTask"
+        >
         <ul v-if="showList">
             <li 
                 v-for="(task, index) in tasks" 
@@ -36,6 +40,7 @@ export default {
     },
     
     data: () => ({
+        currentTask:'',
         showList: false,
         tasks: [
             {
@@ -60,6 +65,13 @@ export default {
                 }
                 return {...t}
             })
+        },
+        addTask(){
+            this.tasks.push({
+                name: this.currentTask,
+                isDone: false
+            })
+            this.currentTask = '';
         }
     }
 }
