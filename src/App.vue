@@ -3,7 +3,7 @@
 </template>
 
 <script setup>
-import App from './nova-syntax-e-antiga/App.vue'
+import App from './lifecyclehooks/App.vue'
 </script>
 
 <style>
