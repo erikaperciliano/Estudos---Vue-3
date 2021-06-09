@@ -3,7 +3,7 @@
 </template>
 
 <script setup>
-import App from './eventos-e-metodos/App.vue'
+import App from './nova-syntax-e-antiga/App.vue'
 </script>
 
 <style>
